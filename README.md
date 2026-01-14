@@ -1,3 +1,4 @@
+# Before reading, I just want to say: This is my first GitHub project ever published! Thank you for giving me a chance🙂
 # This is a decent Calculator, built in C#, designed in WinForms.
 
 ## How to download:
