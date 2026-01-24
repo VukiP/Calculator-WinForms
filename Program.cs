@@ -14,8 +14,6 @@ namespace CalculatorWinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            // Launch your calculator form
             Application.Run(new Calculator());
         }
     }
