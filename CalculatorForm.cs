@@ -17,11 +17,8 @@ namespace CalculatorWinForms
 
         private string CurrentOperation = "";
         private bool IsOperationPending = false;
-
-        // Tracks whether the calculator is in an error state.
-        // Examples: Dividing by zero, or rooting a negative value -> Sets 'IsError = true' ; this disables most buttons.
-        private bool IsError = false;
-
+        private bool IsError = false;   // Tracks whether the calculator is in an error state.
+        private bool CalculationPerformed = false; // For proper Backspace functioning.
         public Calculator()
         {
             InitializeComponent(); 
@@ -30,14 +27,14 @@ namespace CalculatorWinForms
         {
             Button clicked = (Button)sender; 
 
-            if (IsOperationPending || ResultsBox.Text == "0") // If an operation is pending or the display shows 0:
+            if (IsOperationPending || ResultsBox.Text == "0") 
             {
                 ResultsBox.Text = clicked.Text; 
                 IsOperationPending = false; 
                 CurrentOpBox.Text = ""; 
             }
 
-            else // Otherwise:
+            else 
             {
                 ResultsBox.Text += clicked.Text; 
             }
@@ -53,7 +50,7 @@ namespace CalculatorWinForms
 
             UpdateCurrentOpBox();
         }
-        private void SimpleOp_Click(object sender, EventArgs e) // Simple operations wired to one event handler.
+        private void SimpleOp_Click(object sender, EventArgs e) // Binary operations wired to one event handler.
         {
             Button clicked = (Button)sender; 
             string newOp = clicked.Text; 
@@ -84,8 +81,9 @@ namespace CalculatorWinForms
             IsOperationPending = true; 
             UpdateCurrentOpBox(); 
         }
-        private void EqualsButton_Click(object sender, EventArgs e) // Event handler for the 'equals' button ('=').
+        private void EqualsButton_Click(object sender, EventArgs e) 
         {
+            CalculationPerformed = true;
             // CASE A: No operator chosen yet, just finalize the display.
             if (string.IsNullOrEmpty(CurrentOperation))
             {
@@ -105,7 +103,7 @@ namespace CalculatorWinForms
                 SecondValue = LastOperand; // Reuse the last operand.
             }
 
-            string expressionLabel = $"{FirstValue} {CurrentOperation} {SecondValue}"; // Build expression string.
+            string expressionLabel = $"{FirstValue} {CurrentOperation} {SecondValue}"; 
             Compute(); 
 
             if (!IsError) 
@@ -114,7 +112,7 @@ namespace CalculatorWinForms
                 IsOperationPending = true; 
             }
         }
-        private void ClearAllButton_Click(object sender, EventArgs e) // Event handler for 'Clear All' button.
+        private void ClearAllButton_Click(object sender, EventArgs e) 
         {
             ResultsBox.Text = "0"; 
             FirstValue = 0;
@@ -122,12 +120,13 @@ namespace CalculatorWinForms
             LastOperand = 0;
             CurrentOperation = string.Empty;
             CurrentOpBox.Text = ""; 
-            IsOperationPending = false; 
+            IsOperationPending = false;
+            CalculationPerformed = false;
 
             ResetAfterError(); 
             UpdateCurrentOpBox(); 
         }
-        private void ClearEntryButton_Click(object sender, EventArgs e) // Event handler for 'Clear Entry' button.
+        private void ClearEntryButton_Click(object sender, EventArgs e) 
         {
             ResultsBox.Text = "0"; 
 
@@ -136,7 +135,8 @@ namespace CalculatorWinForms
             {
                 SecondValue = 0; 
                 LastOperand = 0; 
-                IsOperationPending = true; 
+                IsOperationPending = true;
+                CalculationPerformed = false;
                 CurrentOpBox.Text = $"{FirstValue} {CurrentOperation}"; 
             }
             // CASE B: No operator active -> Clear entry only.
@@ -149,24 +149,41 @@ namespace CalculatorWinForms
 
             ResetAfterError(); 
         }
-        private void BackspaceButton_Click(object sender, EventArgs e) // Event handler for 'Backspace' button.
+        private void BackspaceButton_Click(object sender, EventArgs e) 
         {
-            // CASE A: More than one character in the display>
-            if (ResultsBox.Text.Length > 1)
+            if (!CalculationPerformed)
             {
-                ResultsBox.Text = ResultsBox.Text[..^1]; // Slice off the last character.
-            }
-            // CASE B: Only one character left -> Reset to 0.
-            else
-            {
-                SecondValue = 0; 
-                LastOperand = 0; 
-                ResultsBox.Text = "0"; 
+                if (!ResultsBox.Text.Contains('E'))
+                {
+                    // CASE A: More than one character in the display.
+                    if (ResultsBox.Text.Length > 1)
+                    {
+                        ResultsBox.Text = ResultsBox.Text[..^1]; // Slice off the last character.
+                        LastOperand = double.Parse(ResultsBox.Text);
+                    }
+                    // CASE B: Only one character left -> Reset to 0.
+                    else
+                    {
+                        SecondValue = 0;
+                        LastOperand = 0;
+                        ResultsBox.Text = "0";
+                    }
+                }
+                else
+                {
+                    ResultsBox.Text = ResultsBox.Text[..^5]; // Not gonna lie, this way of preventing errors with scientific notations is AWFUL.
+                                                             // I'll fix this when I gather enough coding knowledge.
+                }
+
+                UpdateCurrentOpBox();
             }
 
-            UpdateCurrentOpBox(); 
+            else 
+            {
+                return;
+            }
         }
-        private void AdditiveInverseButton_Click(object sender, EventArgs e) // Event handler for Additive Inverse (Negate).
+        private void AdditiveInverseButton_Click(object sender, EventArgs e) 
         {
             FirstValue = double.Parse(ResultsBox.Text); 
             double input = FirstValue; 
@@ -176,7 +193,7 @@ namespace CalculatorWinForms
                 return;
             }
 
-            FirstValue = -FirstValue; 
+            FirstValue *= -1;
             SecondValue = 0; 
             LastOperand = 0; 
             CurrentOperation = ""; 
@@ -185,7 +202,7 @@ namespace CalculatorWinForms
         }
         private void ReciprocalButton_Click(object sender, EventArgs e) // Event handler for  Reciprocal (1/x).
         {
-            try // Possible division by zero.
+            try 
             {
                 FirstValue = double.Parse(ResultsBox.Text); 
 
@@ -204,7 +221,7 @@ namespace CalculatorWinForms
                 SetError("Cannot divide by zero!"); 
             }
         }
-        private void PercentButton_Click(object sender, EventArgs e) // Event handler for Percent button (%): Calculates percentage depending on context.
+        private void PercentButton_Click(object sender, EventArgs e) 
         {
             double input = double.Parse(ResultsBox.Text); 
 
@@ -287,7 +304,7 @@ namespace CalculatorWinForms
                 }
                 case "÷":
                 {
-                    if (SecondValue == 0) // Guard against division by zero. 
+                    if (SecondValue == 0)  
                     {
                         SetError("Cannot divide by zero!"); 
                         return;
@@ -297,7 +314,7 @@ namespace CalculatorWinForms
                 }
             }
 
-            if ((double.IsInfinity(FirstValue) || double.IsNaN(FirstValue) || FirstValue > double.MaxValue || FirstValue < double.MinValue)) // Guard against Incomputable values.
+            if ((double.IsInfinity(FirstValue) || double.IsNaN(FirstValue))) // Guard against Incomputable values.
             {
                 SetError("Value out of bounds!"); 
                 return;
@@ -321,7 +338,7 @@ namespace CalculatorWinForms
 
         private void DisableAllButtons() 
         {
-            if (IsError) // (only true when values are Incomputable).
+            if (IsError) 
             {
                 foreach (Control c in this.Controls) 
                 {
