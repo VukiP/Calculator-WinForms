@@ -55,6 +55,13 @@
             BackspaceButton = new Button();
             ResultsBox = new TextBox();
             CurrentOpBox = new TextBox();
+            MemoryPanel = new Panel();
+            MemoryToolbarPanel = new Panel();
+            MemoryCopyButton = new Button();
+            MemoryDeleteButton = new Button();
+            MemoryListView = new ListView();
+            MemoryPanel.SuspendLayout();
+            MemoryToolbarPanel.SuspendLayout();
             SuspendLayout();
             // 
             // DigitOneButton
@@ -398,12 +405,68 @@
             CurrentOpBox.Text = "Made by VukiP.";
             CurrentOpBox.TextAlign = HorizontalAlignment.Right;
             // 
+            // MemoryPanel
+            // 
+            MemoryPanel.Controls.Add(MemoryToolbarPanel);
+            MemoryPanel.Controls.Add(MemoryListView);
+            MemoryPanel.Location = new Point(575, 25);
+            MemoryPanel.Name = "MemoryPanel";
+            MemoryPanel.Size = new Size(380, 485);
+            MemoryPanel.TabIndex = 25;
+            // 
+            // MemoryToolbarPanel
+            // 
+            MemoryToolbarPanel.Controls.Add(MemoryCopyButton);
+            MemoryToolbarPanel.Controls.Add(MemoryDeleteButton);
+            MemoryToolbarPanel.Location = new Point(0, 0);
+            MemoryToolbarPanel.Name = "MemoryToolbarPanel";
+            MemoryToolbarPanel.Size = new Size(380, 40);
+            MemoryToolbarPanel.TabIndex = 0;
+            // 
+            // MemoryCopyButton
+            // 
+            MemoryCopyButton.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            MemoryCopyButton.Location = new Point(0, 0);
+            MemoryCopyButton.Name = "MemoryCopyButton";
+            MemoryCopyButton.Size = new Size(190, 40);
+            MemoryCopyButton.TabIndex = 25;
+            MemoryCopyButton.Text = "COPY";
+            MemoryCopyButton.UseVisualStyleBackColor = true;
+            MemoryCopyButton.Click += MemoryCopyButton_Click;
+            // 
+            // MemoryDeleteButton
+            // 
+            MemoryDeleteButton.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            MemoryDeleteButton.Location = new Point(190, 0);
+            MemoryDeleteButton.Name = "MemoryDeleteButton";
+            MemoryDeleteButton.Size = new Size(190, 40);
+            MemoryDeleteButton.TabIndex = 26;
+            MemoryDeleteButton.Text = "DELETE";
+            MemoryDeleteButton.UseVisualStyleBackColor = true;
+            MemoryDeleteButton.Click += MemoryDeleteButton_Click;
+            // 
+            // MemoryListView
+            // 
+            MemoryListView.BorderStyle = BorderStyle.None;
+            MemoryListView.Font = new Font("Constantia", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            MemoryListView.FullRowSelect = true;
+            MemoryListView.HeaderStyle = ColumnHeaderStyle.None;
+            MemoryListView.Location = new Point(0, 42);
+            MemoryListView.Name = "MemoryListView";
+            MemoryListView.Size = new Size(380, 443);
+            MemoryListView.TabIndex = 27;
+            MemoryListView.UseCompatibleStateImageBehavior = false;
+            MemoryListView.View = View.Details;
+            MemoryListView.SelectedIndexChanged += MemoryListView_SelectedIndexChanged;
+            MemoryListView.DoubleClick += MemoryListView_DoubleClick;
+            // 
             // Calculator
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(587, 525);
+            ClientSize = new Size(967, 525);
+            Controls.Add(MemoryPanel);
             Controls.Add(CurrentOpBox);
             Controls.Add(ResultsBox);
             Controls.Add(BackspaceButton);
@@ -436,6 +499,8 @@
             Name = "Calculator";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Calculator ";
+            MemoryPanel.ResumeLayout(false);
+            MemoryToolbarPanel.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -468,5 +533,10 @@
         private Button BackspaceButton;
         private TextBox ResultsBox;
         private TextBox CurrentOpBox;
+        private Panel MemoryPanel;
+        private Panel MemoryToolbarPanel;
+        private Button MemoryDeleteButton;
+        private Button MemoryCopyButton;
+        private ListView MemoryListView;
     }
 }
