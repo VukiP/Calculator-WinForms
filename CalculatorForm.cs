@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 
 // This program is a calculator built with C#, WinForms mode.
-// And below this is the source code, with comments.
+// Made by @VukiP, who is alive.
 
 namespace CalculatorWinForms
 {
@@ -17,11 +17,17 @@ namespace CalculatorWinForms
 
         private string CurrentOperation = "";
         private bool IsOperationPending = false;
-        private bool IsError = false;   // Tracks whether the calculator is in an error state.
+        private bool IsError = false;   
         private bool CalculationPerformed = false; // For proper Backspace functioning.
+
+        private readonly List<string> MemoryHistory = []; // Memory, dude, memory.
         public Calculator()
         {
-            InitializeComponent(); 
+            InitializeComponent();
+            MemoryHistory = [];
+            MemoryDeleteButton.Enabled = false;
+            MemoryCopyButton.Enabled = false;
+            MemoryListView.Columns.Add("Memory", -2, HorizontalAlignment.Right); // Absolutely necessary for memory to even work.
         }
         private void Digit_Click(object sender, EventArgs e) // Digit buttons wired to one event handler. 
         {
@@ -45,7 +51,7 @@ namespace CalculatorWinForms
         {
             if (!ResultsBox.Text.Contains('.')) 
             {
-                ResultsBox.Text += '.'; 
+                ResultsBox.Text += '.'; // Yay, decimals!
             }
 
             UpdateCurrentOpBox();
@@ -78,7 +84,8 @@ namespace CalculatorWinForms
 
             // CASE C: Operator already exists but we’re still waiting for the next number.
             CurrentOperation = newOp; 
-            IsOperationPending = true; 
+            IsOperationPending = true;
+            LastOperand = double.Parse(ResultsBox.Text);
             UpdateCurrentOpBox(); 
         }
         private void EqualsButton_Click(object sender, EventArgs e) 
@@ -104,12 +111,21 @@ namespace CalculatorWinForms
             }
 
             string expressionLabel = $"{FirstValue} {CurrentOperation} {SecondValue}"; 
-            Compute(); 
+            Compute();
 
-            if (!IsError) 
+            if (!IsError)
             {
-                CurrentOpBox.Text = expressionLabel + " ="; 
-                IsOperationPending = true; 
+                string fullEntry = $"{expressionLabel} = {ResultsBox.Text}";
+
+                // Add to internal history
+                MemoryHistory.Add(fullEntry);
+
+                // Add to ListView with right alignment
+                MemoryListView.Items.Add(new ListViewItem(fullEntry));
+
+                // Update current operation display
+                CurrentOpBox.Text = expressionLabel + " =";
+                IsOperationPending = true;
             }
         }
         private void ClearAllButton_Click(object sender, EventArgs e) 
@@ -153,7 +169,7 @@ namespace CalculatorWinForms
         {
             if (!CalculationPerformed)
             {
-                if (!ResultsBox.Text.Contains('E'))
+                if (!ResultsBox.Text.Contains('E')) 
                 {
                     // CASE A: More than one character in the display.
                     if (ResultsBox.Text.Length > 1)
@@ -171,8 +187,7 @@ namespace CalculatorWinForms
                 }
                 else
                 {
-                    ResultsBox.Text = ResultsBox.Text[..^5]; // Not gonna lie, this way of preventing errors with scientific notations is AWFUL.
-                                                             // I'll fix this when I gather enough coding knowledge.
+                    ResultsBox.Text = ResultsBox.Text[..^5]; // Crude workaround, not gonna lie. 
                 }
 
                 UpdateCurrentOpBox();
@@ -197,10 +212,11 @@ namespace CalculatorWinForms
             SecondValue = 0; 
             LastOperand = 0; 
             CurrentOperation = ""; 
-            ResultsBox.Text = FirstValue.ToString(); 
-            CurrentOpBox.Text = $"-({input}) ="; 
+            ResultsBox.Text = FirstValue.ToString();
+            CurrentOpBox.Text = $"-({input}) =";
+            AddMemoryEntry($"-({input})");
         }
-        private void ReciprocalButton_Click(object sender, EventArgs e) // Event handler for  Reciprocal (1/x).
+        private void ReciprocalButton_Click(object sender, EventArgs e) 
         {
             try 
             {
@@ -213,8 +229,9 @@ namespace CalculatorWinForms
 
                 double input = FirstValue; 
                 FirstValue = 1 / FirstValue; 
-                ResultsBox.Text = FirstValue.ToString(); 
-                CurrentOpBox.Text = $"1/({input}) ="; 
+                ResultsBox.Text = FirstValue.ToString();
+                CurrentOpBox.Text = $"1/({input}) =";
+                AddMemoryEntry($"1/({input})");
             }
             catch (DivideByZeroException) // Division by zero caught!
             {
@@ -254,7 +271,7 @@ namespace CalculatorWinForms
                 IsOperationPending = true; 
             }
         }
-        private void RootButton_Click(object sender, EventArgs e)  // Event handler for 'square root' button.
+        private void RootButton_Click(object sender, EventArgs e)  
         {
             FirstValue = double.Parse(ResultsBox.Text); 
             if (FirstValue < 0)
@@ -265,10 +282,11 @@ namespace CalculatorWinForms
 
             double input = FirstValue; 
             FirstValue = Math.Sqrt(FirstValue); 
-            ResultsBox.Text = FirstValue.ToString(); 
-            CurrentOpBox.Text = $"√({input}) ="; 
+            ResultsBox.Text = FirstValue.ToString();
+            CurrentOpBox.Text = $"√({input}) =";
+            AddMemoryEntry($"√({input})");
         }
-        private void PowerButton_Click(object sender, EventArgs e)  // Event handler for 'power' button.
+        private void PowerButton_Click(object sender, EventArgs e)  
         {
             FirstValue = double.Parse(ResultsBox.Text); 
             double input = FirstValue; 
@@ -281,7 +299,8 @@ namespace CalculatorWinForms
                 return;
             }
 
-            CurrentOpBox.Text = $"({input})² ="; 
+            CurrentOpBox.Text = $"({input})² =";
+            AddMemoryEntry($"({input})²");
         }
         private void Compute()  // Perform the actual computation based on the current operator.
         {
@@ -323,7 +342,7 @@ namespace CalculatorWinForms
             ResultsBox.Text = FirstValue.ToString(); 
             IsOperationPending = true; 
         }
-        private void SetError(string message)  // Error handling: Puts calculator into error mode.
+        private void SetError(string message)  
         {
             ResultsBox.Text = message; 
             CurrentOpBox.Text = "Reset the calculator!"; 
@@ -335,22 +354,22 @@ namespace CalculatorWinForms
             ResultsBox.SelectionStart = ResultsBox.Text.Length; 
             ResultsBox.SelectionLength = 0;
         }
-
         private void DisableAllButtons() 
         {
             if (IsError) 
             {
-                foreach (Control c in this.Controls) 
+                foreach (Control c in Controls)
                 {
-                    if (c is Button b) 
+                    if (c is Button button && button.Parent != MemoryPanel)
                     {
-                        b.Enabled = b.Name == "ClearAllButton" || b.Name == "ClearEntryButton"; // Leave AC and CE enabled ONLY.
+                        button.Enabled =
+                        button.Name == "ClearAllButton" ||
+                        button.Name == "ClearEntryButton";
                     }
                 }
             }
         }
-
-        private void ResetAfterError() // Reset Calculator after Error -> Re‑enable all buttons.
+        private void ResetAfterError() 
         {
             IsError = false; 
             foreach (Control c in this.Controls) 
@@ -363,7 +382,7 @@ namespace CalculatorWinForms
         }
         private void UpdateCurrentOpBox() // Update OpBox depending on it's state.
         {
-            if(IsError) 
+            if (IsError)
             {
                 return;
             }
@@ -386,8 +405,112 @@ namespace CalculatorWinForms
             // DEFAULT CASE: 
             else
             {
-                CurrentOpBox.Text = "Made by VukiP."; 
+                CurrentOpBox.Text = "Made by VukiP.";
             }
         }
+        private void MemoryListView_DoubleClick(object sender, EventArgs e) // Pasting into ResultsBox and CurrentOpBox.
+        {
+            // Do nothing if no item is selected.
+            if (MemoryListView.SelectedItems.Count == 0)
+            { 
+                return;
+            }
+            // Get the text of the selected Memory entry.
+            string entry = MemoryListView.SelectedItems[0].Text;
+
+            // Find the position of the '=' character in the Memory string.
+            int equalsIndex = entry.IndexOf('=');
+
+            // If '=' is not found, do nothing.
+            if (equalsIndex < 0)
+            { 
+                return;
+            }
+
+            // Extract the expression (everything before '=') and trim whitespace.
+            string expression = entry[..equalsIndex].Trim();
+
+            // Extract the result (everything after '=') and trim whitespace.
+            string result = entry[(equalsIndex + 1)..].Trim();
+
+            ResultsBox.Text = result;
+            CurrentOpBox.Text = expression + " =";
+
+            if (IsError)
+            {
+                ResetAfterError();
+            }
+
+            CurrentOperation = "";
+            IsOperationPending = true;
+            CalculationPerformed = false;
+        }
+        private void AddMemoryEntry(string expression)
+        {
+            if (IsError)
+            { 
+               return;
+            }
+
+            string entry = $"{expression} = {ResultsBox.Text}";
+
+            // Add the entry to the internal MemoryHistory list.
+            MemoryHistory.Add(entry);
+
+            // Create a new ListView item for display in the MemoryListView.
+            var item = new ListViewItem([entry]);
+
+            // Add the item to the MemoryListView.
+            MemoryListView.Items.Add(item);
+
+            // Automatically scroll the MemoryListView to make the newest item visible.
+            item.EnsureVisible();
+        }
+        private void MemoryListView_SelectedIndexChanged(object sender, EventArgs e) // Handles the selection change event for the MemoryListView.
+        {
+            // Enable the Delete and Copy buttons only if an item is selected.
+            bool hasSelection = MemoryListView.SelectedItems.Count > 0;
+            MemoryDeleteButton.Enabled = hasSelection;
+            MemoryCopyButton.Enabled = hasSelection;
+        }
+        private void MemoryCopyButton_Click(object sender, EventArgs e)
+        {
+            // Do nothing if no item is selected.
+            if (MemoryListView.SelectedItems.Count == 0)
+            { 
+                return; 
+            }
+
+            // Copy the text of the selected item to the clipboard.
+            Clipboard.SetText(MemoryListView.SelectedItems[0].Text);
+        }
+        private void MemoryDeleteButton_Click(object sender, EventArgs e) 
+        {
+            // If Shift is held, clear all memory.
+            if ((ModifierKeys & Keys.Shift) == Keys.Shift)
+            {
+                MemoryListView.Items.Clear(); // Remove all items from the ListView.
+                MemoryHistory.Clear(); // Clear the internal memory history.
+                MemoryDeleteButton.Enabled = false; 
+                MemoryCopyButton.Enabled = false;
+                return;
+            }
+
+            // Do nothing if no item is selected.
+            if (MemoryListView.SelectedIndices.Count == 0)
+            {
+                return;
+            }
+
+            // Get the index of the selected item.
+            int index = MemoryListView.SelectedIndices[0];
+
+            // Remove the selected item from the ListView.
+            MemoryListView.Items.RemoveAt(index);
+
+            // Remove the corresponding entry from the internal memory history.
+            MemoryHistory.RemoveAt(index);
+        }
+
     }
 }
