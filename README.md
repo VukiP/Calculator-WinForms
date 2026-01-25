@@ -1,11 +1,11 @@
-# This is a decent Calculator, built in C#, designed in Windows Forms.
+# WinForms Calculator! Wow! 
 
 ##  Preview:
 
 ![Interface Preview](Properties/Screenshots/InterfacePreview.png)
 
 ## What it contains:
-1. Basic operations: addition, subtraction, multiplication, division.
+1. Binary operations: addition, subtraction, multiplication, division.
 2. Unary operations¹: squaring, rooting, negating, reciprocal.
 3. Percent based on the current calculation state.
 4. Sequential calculation(no operator precedence, operations are performed in the order entered).
