@@ -1,4 +1,4 @@
-# WinForms Calculator! All criticism is welcome.
+# All criticism is welcome.
 ## Preview:
 
 ![Interface Preview](Properties/Screenshots/InterfacePreview.png)
@@ -18,7 +18,7 @@
 ¹Unary operations compute immediately on click.
 
 ## DOWNLOAD AND INSTALL:
-Every new version of my Calculator will be published in the 'Releases' tab.
+Every new version of the Calculator will be published in the 'Releases' tab.
 
 ## LICENSE:
 This project is licensed under the GNU General Public License v3.0.
