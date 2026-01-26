@@ -56,10 +56,11 @@
             ResultsBox = new TextBox();
             CurrentOpBox = new TextBox();
             MemoryPanel = new Panel();
+            MemoryListView = new ListView();
             MemoryToolbarPanel = new Panel();
             MemoryCopyButton = new Button();
             MemoryDeleteButton = new Button();
-            MemoryListView = new ListView();
+            MemoryToggleButton = new Button();
             MemoryPanel.SuspendLayout();
             MemoryToolbarPanel.SuspendLayout();
             SuspendLayout();
@@ -68,7 +69,7 @@
             // 
             DigitOneButton.BackColor = Color.Gainsboro;
             DigitOneButton.FlatStyle = FlatStyle.Flat;
-            DigitOneButton.Font = new Font("Segoe UI", 14F);
+            DigitOneButton.Font = new Font("Microsoft Sans Serif", 14F);
             DigitOneButton.Location = new Point(28, 132);
             DigitOneButton.Name = "DigitOneButton";
             DigitOneButton.Size = new Size(89, 71);
@@ -76,131 +77,131 @@
             DigitOneButton.Text = "1";
             DigitOneButton.UseMnemonic = false;
             DigitOneButton.UseVisualStyleBackColor = true;
-            DigitOneButton.Click += Digit_Click;
+            DigitOneButton.Click += DigitButton_Click;
             // 
             // DigitTwoButton
             // 
             DigitTwoButton.BackColor = Color.Gainsboro;
             DigitTwoButton.FlatStyle = FlatStyle.Flat;
-            DigitTwoButton.Font = new Font("Segoe UI", 14F);
+            DigitTwoButton.Font = new Font("Microsoft Sans Serif", 14F);
             DigitTwoButton.Location = new Point(123, 132);
             DigitTwoButton.Name = "DigitTwoButton";
             DigitTwoButton.Size = new Size(89, 71);
             DigitTwoButton.TabIndex = 1;
             DigitTwoButton.Text = "2";
             DigitTwoButton.UseVisualStyleBackColor = false;
-            DigitTwoButton.Click += Digit_Click;
+            DigitTwoButton.Click += DigitButton_Click;
             // 
             // DigitThreeButton
             // 
             DigitThreeButton.BackColor = Color.Gainsboro;
             DigitThreeButton.FlatStyle = FlatStyle.Flat;
-            DigitThreeButton.Font = new Font("Segoe UI", 14F);
+            DigitThreeButton.Font = new Font("Microsoft Sans Serif", 14F);
             DigitThreeButton.Location = new Point(218, 132);
             DigitThreeButton.Name = "DigitThreeButton";
             DigitThreeButton.Size = new Size(89, 71);
             DigitThreeButton.TabIndex = 2;
             DigitThreeButton.Text = "3";
             DigitThreeButton.UseVisualStyleBackColor = false;
-            DigitThreeButton.Click += Digit_Click;
+            DigitThreeButton.Click += DigitButton_Click;
             // 
             // DigitFourButton
             // 
             DigitFourButton.BackColor = Color.Gainsboro;
             DigitFourButton.FlatStyle = FlatStyle.Flat;
-            DigitFourButton.Font = new Font("Segoe UI", 14F);
+            DigitFourButton.Font = new Font("Microsoft Sans Serif", 14F);
             DigitFourButton.Location = new Point(28, 209);
             DigitFourButton.Name = "DigitFourButton";
             DigitFourButton.Size = new Size(89, 71);
             DigitFourButton.TabIndex = 3;
             DigitFourButton.Text = "4";
             DigitFourButton.UseVisualStyleBackColor = false;
-            DigitFourButton.Click += Digit_Click;
+            DigitFourButton.Click += DigitButton_Click;
             // 
             // DigitFiveButton
             // 
             DigitFiveButton.BackColor = Color.Gainsboro;
             DigitFiveButton.FlatStyle = FlatStyle.Flat;
-            DigitFiveButton.Font = new Font("Segoe UI", 14F);
+            DigitFiveButton.Font = new Font("Microsoft Sans Serif", 14F);
             DigitFiveButton.Location = new Point(123, 209);
             DigitFiveButton.Name = "DigitFiveButton";
             DigitFiveButton.Size = new Size(89, 71);
             DigitFiveButton.TabIndex = 4;
             DigitFiveButton.Text = "5";
             DigitFiveButton.UseVisualStyleBackColor = false;
-            DigitFiveButton.Click += Digit_Click;
+            DigitFiveButton.Click += DigitButton_Click;
             // 
             // DigitSixButton
             // 
             DigitSixButton.BackColor = Color.Gainsboro;
             DigitSixButton.FlatStyle = FlatStyle.Flat;
-            DigitSixButton.Font = new Font("Segoe UI", 14F);
+            DigitSixButton.Font = new Font("Microsoft Sans Serif", 14F);
             DigitSixButton.Location = new Point(218, 209);
             DigitSixButton.Name = "DigitSixButton";
             DigitSixButton.Size = new Size(89, 71);
             DigitSixButton.TabIndex = 5;
             DigitSixButton.Text = "6";
             DigitSixButton.UseVisualStyleBackColor = false;
-            DigitSixButton.Click += Digit_Click;
+            DigitSixButton.Click += DigitButton_Click;
             // 
             // DigitSevenButton
             // 
             DigitSevenButton.BackColor = Color.Gainsboro;
             DigitSevenButton.FlatStyle = FlatStyle.Flat;
-            DigitSevenButton.Font = new Font("Segoe UI", 14F);
+            DigitSevenButton.Font = new Font("Microsoft Sans Serif", 14F);
             DigitSevenButton.Location = new Point(28, 285);
             DigitSevenButton.Name = "DigitSevenButton";
             DigitSevenButton.Size = new Size(89, 71);
             DigitSevenButton.TabIndex = 6;
             DigitSevenButton.Text = "7";
             DigitSevenButton.UseVisualStyleBackColor = false;
-            DigitSevenButton.Click += Digit_Click;
+            DigitSevenButton.Click += DigitButton_Click;
             // 
             // DigitEightButton
             // 
             DigitEightButton.BackColor = Color.Gainsboro;
             DigitEightButton.FlatStyle = FlatStyle.Flat;
-            DigitEightButton.Font = new Font("Segoe UI", 14F);
+            DigitEightButton.Font = new Font("Microsoft Sans Serif", 14F);
             DigitEightButton.Location = new Point(123, 285);
             DigitEightButton.Name = "DigitEightButton";
             DigitEightButton.Size = new Size(89, 71);
             DigitEightButton.TabIndex = 7;
             DigitEightButton.Text = "8";
             DigitEightButton.UseVisualStyleBackColor = false;
-            DigitEightButton.Click += Digit_Click;
+            DigitEightButton.Click += DigitButton_Click;
             // 
             // DigitNineButton
             // 
             DigitNineButton.BackColor = Color.Gainsboro;
             DigitNineButton.FlatStyle = FlatStyle.Flat;
-            DigitNineButton.Font = new Font("Segoe UI", 14F);
+            DigitNineButton.Font = new Font("Microsoft Sans Serif", 14F);
             DigitNineButton.Location = new Point(218, 286);
             DigitNineButton.Name = "DigitNineButton";
             DigitNineButton.Size = new Size(89, 71);
             DigitNineButton.TabIndex = 8;
             DigitNineButton.Text = "9";
             DigitNineButton.UseVisualStyleBackColor = false;
-            DigitNineButton.Click += Digit_Click;
+            DigitNineButton.Click += DigitButton_Click;
             // 
             // DigitZeroButton
             // 
             DigitZeroButton.BackColor = Color.Gainsboro;
             DigitZeroButton.FlatStyle = FlatStyle.Flat;
-            DigitZeroButton.Font = new Font("Segoe UI", 14F);
+            DigitZeroButton.Font = new Font("Microsoft Sans Serif", 14F);
             DigitZeroButton.Location = new Point(28, 362);
             DigitZeroButton.Name = "DigitZeroButton";
             DigitZeroButton.Size = new Size(184, 71);
             DigitZeroButton.TabIndex = 9;
             DigitZeroButton.Text = "0";
             DigitZeroButton.UseVisualStyleBackColor = false;
-            DigitZeroButton.Click += Digit_Click;
+            DigitZeroButton.Click += DigitButton_Click;
             // 
             // DecimalButton
             // 
             DecimalButton.BackColor = Color.Gainsboro;
             DecimalButton.FlatStyle = FlatStyle.Flat;
-            DecimalButton.Font = new Font("Segoe UI", 14F);
-            DecimalButton.Location = new Point(218, 362);
+            DecimalButton.Font = new Font("Microsoft Sans Serif", 14F);
+            DecimalButton.Location = new Point(218, 363);
             DecimalButton.Name = "DecimalButton";
             DecimalButton.Size = new Size(89, 71);
             DecimalButton.TabIndex = 10;
@@ -212,7 +213,7 @@
             // 
             ClearEntryButton.BackColor = SystemColors.ScrollBar;
             ClearEntryButton.FlatStyle = FlatStyle.Flat;
-            ClearEntryButton.Font = new Font("Segoe UI", 14F);
+            ClearEntryButton.Font = new Font("Microsoft Sans Serif", 14F);
             ClearEntryButton.Location = new Point(313, 132);
             ClearEntryButton.Name = "ClearEntryButton";
             ClearEntryButton.Size = new Size(78, 71);
@@ -251,7 +252,7 @@
             // 
             ClearAllButton.BackColor = SystemColors.ScrollBar;
             ClearAllButton.FlatStyle = FlatStyle.Flat;
-            ClearAllButton.Font = new Font("Segoe UI", 14F);
+            ClearAllButton.Font = new Font("Microsoft Sans Serif", 14F);
             ClearAllButton.Location = new Point(397, 132);
             ClearAllButton.Name = "ClearAllButton";
             ClearAllButton.Size = new Size(78, 71);
@@ -368,7 +369,7 @@
             // 
             BackspaceButton.BackColor = SystemColors.ScrollBar;
             BackspaceButton.FlatStyle = FlatStyle.Flat;
-            BackspaceButton.Font = new Font("Segoe UI", 14F);
+            BackspaceButton.Font = new Font("Microsoft Sans Serif", 14F);
             BackspaceButton.Location = new Point(481, 132);
             BackspaceButton.Name = "BackspaceButton";
             BackspaceButton.Size = new Size(78, 71);
@@ -380,13 +381,13 @@
             // ResultsBox
             // 
             ResultsBox.BackColor = Color.WhiteSmoke;
-            ResultsBox.Font = new Font("Consolas", 18F);
+            ResultsBox.Font = new Font("Consolas", 20F);
             ResultsBox.ForeColor = Color.Black;
             ResultsBox.Location = new Point(28, 67);
             ResultsBox.Name = "ResultsBox";
             ResultsBox.ReadOnly = true;
             ResultsBox.RightToLeft = RightToLeft.No;
-            ResultsBox.Size = new Size(531, 43);
+            ResultsBox.Size = new Size(531, 47);
             ResultsBox.TabIndex = 23;
             ResultsBox.Text = "0";
             ResultsBox.TextAlign = HorizontalAlignment.Right;
@@ -395,40 +396,55 @@
             // 
             CurrentOpBox.BackColor = Color.White;
             CurrentOpBox.BorderStyle = BorderStyle.None;
-            CurrentOpBox.Font = new Font("Consolas", 10.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            CurrentOpBox.Location = new Point(28, 25);
+            CurrentOpBox.Font = new Font("Consolas", 12F, FontStyle.Italic);
+            CurrentOpBox.Location = new Point(159, 37);
             CurrentOpBox.Name = "CurrentOpBox";
             CurrentOpBox.ReadOnly = true;
             CurrentOpBox.RightToLeft = RightToLeft.No;
-            CurrentOpBox.Size = new Size(531, 20);
+            CurrentOpBox.Size = new Size(400, 24);
             CurrentOpBox.TabIndex = 24;
             CurrentOpBox.Text = "Made by VukiP.";
             CurrentOpBox.TextAlign = HorizontalAlignment.Right;
             // 
             // MemoryPanel
             // 
-            MemoryPanel.Controls.Add(MemoryToolbarPanel);
             MemoryPanel.Controls.Add(MemoryListView);
-            MemoryPanel.Location = new Point(575, 25);
+            MemoryPanel.Controls.Add(MemoryToolbarPanel);
+            MemoryPanel.Location = new Point(581, 15);
             MemoryPanel.Name = "MemoryPanel";
-            MemoryPanel.Size = new Size(380, 485);
+            MemoryPanel.Size = new Size(370, 495);
             MemoryPanel.TabIndex = 25;
+            // 
+            // MemoryListView
+            // 
+            MemoryListView.BorderStyle = BorderStyle.None;
+            MemoryListView.Font = new Font("Consolas", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            MemoryListView.FullRowSelect = true;
+            MemoryListView.HeaderStyle = ColumnHeaderStyle.None;
+            MemoryListView.Location = new Point(0, 52);
+            MemoryListView.Name = "MemoryListView";
+            MemoryListView.Size = new Size(374, 440);
+            MemoryListView.TabIndex = 27;
+            MemoryListView.UseCompatibleStateImageBehavior = false;
+            MemoryListView.View = View.Details;
+            MemoryListView.SelectedIndexChanged += MemoryListView_SelectedIndexChanged;
+            MemoryListView.DoubleClick += MemoryListView_DoubleClick;
             // 
             // MemoryToolbarPanel
             // 
             MemoryToolbarPanel.Controls.Add(MemoryCopyButton);
             MemoryToolbarPanel.Controls.Add(MemoryDeleteButton);
-            MemoryToolbarPanel.Location = new Point(0, 0);
+            MemoryToolbarPanel.Location = new Point(3, 3);
             MemoryToolbarPanel.Name = "MemoryToolbarPanel";
-            MemoryToolbarPanel.Size = new Size(380, 40);
+            MemoryToolbarPanel.Size = new Size(364, 46);
             MemoryToolbarPanel.TabIndex = 0;
             // 
             // MemoryCopyButton
             // 
-            MemoryCopyButton.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            MemoryCopyButton.Location = new Point(0, 0);
+            MemoryCopyButton.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold);
+            MemoryCopyButton.Location = new Point(-3, -3);
             MemoryCopyButton.Name = "MemoryCopyButton";
-            MemoryCopyButton.Size = new Size(190, 40);
+            MemoryCopyButton.Size = new Size(185, 49);
             MemoryCopyButton.TabIndex = 25;
             MemoryCopyButton.Text = "COPY";
             MemoryCopyButton.UseVisualStyleBackColor = true;
@@ -436,29 +452,25 @@
             // 
             // MemoryDeleteButton
             // 
-            MemoryDeleteButton.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            MemoryDeleteButton.Location = new Point(190, 0);
+            MemoryDeleteButton.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold);
+            MemoryDeleteButton.Location = new Point(182, -3);
             MemoryDeleteButton.Name = "MemoryDeleteButton";
-            MemoryDeleteButton.Size = new Size(190, 40);
+            MemoryDeleteButton.Size = new Size(185, 49);
             MemoryDeleteButton.TabIndex = 26;
             MemoryDeleteButton.Text = "DELETE";
             MemoryDeleteButton.UseVisualStyleBackColor = true;
             MemoryDeleteButton.Click += MemoryDeleteButton_Click;
             // 
-            // MemoryListView
+            // MemoryToggleButton
             // 
-            MemoryListView.BorderStyle = BorderStyle.None;
-            MemoryListView.Font = new Font("Constantia", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            MemoryListView.FullRowSelect = true;
-            MemoryListView.HeaderStyle = ColumnHeaderStyle.None;
-            MemoryListView.Location = new Point(0, 42);
-            MemoryListView.Name = "MemoryListView";
-            MemoryListView.Size = new Size(380, 443);
-            MemoryListView.TabIndex = 27;
-            MemoryListView.UseCompatibleStateImageBehavior = false;
-            MemoryListView.View = View.Details;
-            MemoryListView.SelectedIndexChanged += MemoryListView_SelectedIndexChanged;
-            MemoryListView.DoubleClick += MemoryListView_DoubleClick;
+            MemoryToggleButton.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold);
+            MemoryToggleButton.Location = new Point(28, 15);
+            MemoryToggleButton.Name = "MemoryToggleButton";
+            MemoryToggleButton.Size = new Size(89, 49);
+            MemoryToggleButton.TabIndex = 26;
+            MemoryToggleButton.Text = "<";
+            MemoryToggleButton.UseVisualStyleBackColor = true;
+            MemoryToggleButton.Click += MemoryToggleButton_Click;
             // 
             // Calculator
             // 
@@ -466,6 +478,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(967, 525);
+            Controls.Add(MemoryToggleButton);
             Controls.Add(MemoryPanel);
             Controls.Add(CurrentOpBox);
             Controls.Add(ResultsBox);
@@ -538,5 +551,6 @@
         private Button MemoryDeleteButton;
         private Button MemoryCopyButton;
         private ListView MemoryListView;
+        private Button MemoryToggleButton;
     }
 }
