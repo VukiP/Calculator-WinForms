@@ -8,12 +8,12 @@
 2. Unary operations¹: squaring, rooting, negating, reciprocal.
 3. Percent based on the current calculation state.
 4. Sequential calculation(no operator precedence, operations are performed in the order entered).
-5. AC, CE and Backspace buttons, good when you make a mistake and want to revert it.
+5. AC, CE and Backspace buttons (Mistake? Revert it!).
 6. Calculator Memory.
 7. Error handling for:
-  - Dividing by zero.
-  - Rooting negative numbers.
-  - Overflowing.
+   - Dividing by zero.
+   - Rooting negative numbers.
+   - Overflowing.
 
 ¹Unary operations compute immediately on click.
 
