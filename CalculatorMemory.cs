@@ -1,7 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
-
-namespace CalculatorWinForms
+﻿namespace CalculatorWinForms
 {
     public partial class Calculator : Form
     {
@@ -44,11 +41,6 @@ namespace CalculatorWinForms
         }
         private void AddMemoryEntry(string expression)
         {
-            if (IsError)
-            {
-                return;
-            }
-
             string entry = $"{expression} = {ResultsBox.Text}";
 
             // Add the entry to the internal MemoryHistory list.
@@ -59,7 +51,6 @@ namespace CalculatorWinForms
 
             // Add the item to the MemoryListView.
             MemoryListView.Items.Add(item);
-
             // Automatically scroll the MemoryListView to make the newest item visible.
             item.EnsureVisible();
         }

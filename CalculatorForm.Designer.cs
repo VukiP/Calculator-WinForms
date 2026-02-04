@@ -69,7 +69,7 @@
             // 
             DigitOneButton.BackColor = Color.Gainsboro;
             DigitOneButton.FlatStyle = FlatStyle.Flat;
-            DigitOneButton.Font = new Font("Microsoft Sans Serif", 14F);
+            DigitOneButton.Font = new Font("Maiandra GD", 19.8000011F);
             DigitOneButton.Location = new Point(28, 132);
             DigitOneButton.Name = "DigitOneButton";
             DigitOneButton.Size = new Size(89, 71);
@@ -83,7 +83,7 @@
             // 
             DigitTwoButton.BackColor = Color.Gainsboro;
             DigitTwoButton.FlatStyle = FlatStyle.Flat;
-            DigitTwoButton.Font = new Font("Microsoft Sans Serif", 14F);
+            DigitTwoButton.Font = new Font("Maiandra GD", 19.8000011F);
             DigitTwoButton.Location = new Point(123, 132);
             DigitTwoButton.Name = "DigitTwoButton";
             DigitTwoButton.Size = new Size(89, 71);
@@ -96,7 +96,7 @@
             // 
             DigitThreeButton.BackColor = Color.Gainsboro;
             DigitThreeButton.FlatStyle = FlatStyle.Flat;
-            DigitThreeButton.Font = new Font("Microsoft Sans Serif", 14F);
+            DigitThreeButton.Font = new Font("Maiandra GD", 19.8000011F);
             DigitThreeButton.Location = new Point(218, 132);
             DigitThreeButton.Name = "DigitThreeButton";
             DigitThreeButton.Size = new Size(89, 71);
@@ -109,7 +109,7 @@
             // 
             DigitFourButton.BackColor = Color.Gainsboro;
             DigitFourButton.FlatStyle = FlatStyle.Flat;
-            DigitFourButton.Font = new Font("Microsoft Sans Serif", 14F);
+            DigitFourButton.Font = new Font("Maiandra GD", 19.8000011F);
             DigitFourButton.Location = new Point(28, 209);
             DigitFourButton.Name = "DigitFourButton";
             DigitFourButton.Size = new Size(89, 71);
@@ -122,7 +122,7 @@
             // 
             DigitFiveButton.BackColor = Color.Gainsboro;
             DigitFiveButton.FlatStyle = FlatStyle.Flat;
-            DigitFiveButton.Font = new Font("Microsoft Sans Serif", 14F);
+            DigitFiveButton.Font = new Font("Maiandra GD", 19.8000011F);
             DigitFiveButton.Location = new Point(123, 209);
             DigitFiveButton.Name = "DigitFiveButton";
             DigitFiveButton.Size = new Size(89, 71);
@@ -135,7 +135,7 @@
             // 
             DigitSixButton.BackColor = Color.Gainsboro;
             DigitSixButton.FlatStyle = FlatStyle.Flat;
-            DigitSixButton.Font = new Font("Microsoft Sans Serif", 14F);
+            DigitSixButton.Font = new Font("Maiandra GD", 19.8000011F);
             DigitSixButton.Location = new Point(218, 209);
             DigitSixButton.Name = "DigitSixButton";
             DigitSixButton.Size = new Size(89, 71);
@@ -148,7 +148,7 @@
             // 
             DigitSevenButton.BackColor = Color.Gainsboro;
             DigitSevenButton.FlatStyle = FlatStyle.Flat;
-            DigitSevenButton.Font = new Font("Microsoft Sans Serif", 14F);
+            DigitSevenButton.Font = new Font("Maiandra GD", 19.8000011F);
             DigitSevenButton.Location = new Point(28, 285);
             DigitSevenButton.Name = "DigitSevenButton";
             DigitSevenButton.Size = new Size(89, 71);
@@ -161,7 +161,7 @@
             // 
             DigitEightButton.BackColor = Color.Gainsboro;
             DigitEightButton.FlatStyle = FlatStyle.Flat;
-            DigitEightButton.Font = new Font("Microsoft Sans Serif", 14F);
+            DigitEightButton.Font = new Font("Maiandra GD", 19.8000011F);
             DigitEightButton.Location = new Point(123, 285);
             DigitEightButton.Name = "DigitEightButton";
             DigitEightButton.Size = new Size(89, 71);
@@ -174,7 +174,7 @@
             // 
             DigitNineButton.BackColor = Color.Gainsboro;
             DigitNineButton.FlatStyle = FlatStyle.Flat;
-            DigitNineButton.Font = new Font("Microsoft Sans Serif", 14F);
+            DigitNineButton.Font = new Font("Maiandra GD", 19.8000011F);
             DigitNineButton.Location = new Point(218, 286);
             DigitNineButton.Name = "DigitNineButton";
             DigitNineButton.Size = new Size(89, 71);
@@ -187,7 +187,7 @@
             // 
             DigitZeroButton.BackColor = Color.Gainsboro;
             DigitZeroButton.FlatStyle = FlatStyle.Flat;
-            DigitZeroButton.Font = new Font("Microsoft Sans Serif", 14F);
+            DigitZeroButton.Font = new Font("Maiandra GD", 19.8000011F);
             DigitZeroButton.Location = new Point(28, 362);
             DigitZeroButton.Name = "DigitZeroButton";
             DigitZeroButton.Size = new Size(184, 71);
@@ -200,7 +200,7 @@
             // 
             DecimalButton.BackColor = Color.Gainsboro;
             DecimalButton.FlatStyle = FlatStyle.Flat;
-            DecimalButton.Font = new Font("Microsoft Sans Serif", 14F);
+            DecimalButton.Font = new Font("Maiandra GD", 19.8000011F);
             DecimalButton.Location = new Point(218, 363);
             DecimalButton.Name = "DecimalButton";
             DecimalButton.Size = new Size(89, 71);
@@ -213,7 +213,7 @@
             // 
             ClearEntryButton.BackColor = SystemColors.ScrollBar;
             ClearEntryButton.FlatStyle = FlatStyle.Flat;
-            ClearEntryButton.Font = new Font("Microsoft Sans Serif", 14F);
+            ClearEntryButton.Font = new Font("Maiandra GD", 19.8000011F);
             ClearEntryButton.Location = new Point(313, 132);
             ClearEntryButton.Name = "ClearEntryButton";
             ClearEntryButton.Size = new Size(78, 71);
@@ -226,7 +226,7 @@
             // 
             EqualsButton.BackColor = Color.CornflowerBlue;
             EqualsButton.FlatStyle = FlatStyle.Flat;
-            EqualsButton.Font = new Font("Segoe UI", 14F);
+            EqualsButton.Font = new Font("Maiandra GD", 19.8000011F);
             EqualsButton.Location = new Point(28, 439);
             EqualsButton.Name = "EqualsButton";
             EqualsButton.Size = new Size(531, 71);
@@ -239,7 +239,7 @@
             // 
             AddButton.BackColor = SystemColors.ScrollBar;
             AddButton.FlatStyle = FlatStyle.Flat;
-            AddButton.Font = new Font("Microsoft Sans Serif", 18F);
+            AddButton.Font = new Font("Maiandra GD", 19.8000011F);
             AddButton.Location = new Point(313, 209);
             AddButton.Name = "AddButton";
             AddButton.Size = new Size(78, 71);
@@ -252,7 +252,7 @@
             // 
             ClearAllButton.BackColor = SystemColors.ScrollBar;
             ClearAllButton.FlatStyle = FlatStyle.Flat;
-            ClearAllButton.Font = new Font("Microsoft Sans Serif", 14F);
+            ClearAllButton.Font = new Font("Maiandra GD", 19.8000011F);
             ClearAllButton.Location = new Point(397, 132);
             ClearAllButton.Name = "ClearAllButton";
             ClearAllButton.Size = new Size(78, 71);
@@ -265,7 +265,7 @@
             // 
             SubtractButton.BackColor = SystemColors.ScrollBar;
             SubtractButton.FlatStyle = FlatStyle.Flat;
-            SubtractButton.Font = new Font("Microsoft Sans Serif", 18F);
+            SubtractButton.Font = new Font("Maiandra GD", 19.8000011F);
             SubtractButton.Location = new Point(397, 209);
             SubtractButton.Name = "SubtractButton";
             SubtractButton.Size = new Size(78, 71);
@@ -278,7 +278,7 @@
             // 
             MultiplyButton.BackColor = SystemColors.ScrollBar;
             MultiplyButton.FlatStyle = FlatStyle.Flat;
-            MultiplyButton.Font = new Font("Microsoft Sans Serif", 18F);
+            MultiplyButton.Font = new Font("Maiandra GD", 19.8000011F);
             MultiplyButton.Location = new Point(313, 286);
             MultiplyButton.Name = "MultiplyButton";
             MultiplyButton.Size = new Size(78, 71);
@@ -291,7 +291,7 @@
             // 
             DivideButton.BackColor = SystemColors.ScrollBar;
             DivideButton.FlatStyle = FlatStyle.Flat;
-            DivideButton.Font = new Font("Microsoft Sans Serif", 18F);
+            DivideButton.Font = new Font("Maiandra GD", 19.8000011F);
             DivideButton.Location = new Point(397, 285);
             DivideButton.Name = "DivideButton";
             DivideButton.Size = new Size(78, 71);
@@ -304,7 +304,7 @@
             // 
             AdditiveInverseButton.BackColor = SystemColors.ScrollBar;
             AdditiveInverseButton.FlatStyle = FlatStyle.Flat;
-            AdditiveInverseButton.Font = new Font("Microsoft Sans Serif", 13.8F);
+            AdditiveInverseButton.Font = new Font("Maiandra GD", 19.8000011F);
             AdditiveInverseButton.Location = new Point(313, 362);
             AdditiveInverseButton.Name = "AdditiveInverseButton";
             AdditiveInverseButton.Size = new Size(78, 71);
@@ -317,7 +317,7 @@
             // 
             PercentButton.BackColor = SystemColors.ScrollBar;
             PercentButton.FlatStyle = FlatStyle.Flat;
-            PercentButton.Font = new Font("Microsoft Sans Serif", 13.8F);
+            PercentButton.Font = new Font("Maiandra GD", 19.8000011F);
             PercentButton.Location = new Point(481, 362);
             PercentButton.Name = "PercentButton";
             PercentButton.Size = new Size(78, 71);
@@ -330,7 +330,7 @@
             // 
             ReciprocalButton.BackColor = SystemColors.ScrollBar;
             ReciprocalButton.FlatStyle = FlatStyle.Flat;
-            ReciprocalButton.Font = new Font("Microsoft Sans Serif", 13.8F);
+            ReciprocalButton.Font = new Font("Maiandra GD", 19.8000011F);
             ReciprocalButton.Location = new Point(397, 362);
             ReciprocalButton.Name = "ReciprocalButton";
             ReciprocalButton.Size = new Size(78, 71);
@@ -343,7 +343,7 @@
             // 
             RootButton.BackColor = SystemColors.ScrollBar;
             RootButton.FlatStyle = FlatStyle.Flat;
-            RootButton.Font = new Font("Microsoft Sans Serif", 18F);
+            RootButton.Font = new Font("Maiandra GD", 19.8000011F);
             RootButton.Location = new Point(481, 285);
             RootButton.Name = "RootButton";
             RootButton.Size = new Size(78, 71);
@@ -356,7 +356,7 @@
             // 
             PowerButton.BackColor = SystemColors.ScrollBar;
             PowerButton.FlatStyle = FlatStyle.Flat;
-            PowerButton.Font = new Font("Microsoft Sans Serif", 18F);
+            PowerButton.Font = new Font("Maiandra GD", 19.8000011F);
             PowerButton.Location = new Point(481, 209);
             PowerButton.Name = "PowerButton";
             PowerButton.Size = new Size(78, 71);
@@ -369,7 +369,7 @@
             // 
             BackspaceButton.BackColor = SystemColors.ScrollBar;
             BackspaceButton.FlatStyle = FlatStyle.Flat;
-            BackspaceButton.Font = new Font("Microsoft Sans Serif", 14F);
+            BackspaceButton.Font = new Font("Maiandra GD", 19.8000011F);
             BackspaceButton.Location = new Point(481, 132);
             BackspaceButton.Name = "BackspaceButton";
             BackspaceButton.Size = new Size(78, 71);
@@ -381,13 +381,13 @@
             // ResultsBox
             // 
             ResultsBox.BackColor = Color.WhiteSmoke;
-            ResultsBox.Font = new Font("Consolas", 20F);
+            ResultsBox.Font = new Font("Maiandra GD", 22F);
             ResultsBox.ForeColor = Color.Black;
-            ResultsBox.Location = new Point(28, 67);
+            ResultsBox.Location = new Point(28, 70);
             ResultsBox.Name = "ResultsBox";
             ResultsBox.ReadOnly = true;
             ResultsBox.RightToLeft = RightToLeft.No;
-            ResultsBox.Size = new Size(531, 47);
+            ResultsBox.Size = new Size(531, 51);
             ResultsBox.TabIndex = 23;
             ResultsBox.Text = "0";
             ResultsBox.TextAlign = HorizontalAlignment.Right;
@@ -396,12 +396,12 @@
             // 
             CurrentOpBox.BackColor = Color.White;
             CurrentOpBox.BorderStyle = BorderStyle.None;
-            CurrentOpBox.Font = new Font("Consolas", 12F, FontStyle.Italic);
-            CurrentOpBox.Location = new Point(159, 37);
+            CurrentOpBox.Font = new Font("Maiandra GD", 14F);
+            CurrentOpBox.Location = new Point(159, 36);
             CurrentOpBox.Name = "CurrentOpBox";
             CurrentOpBox.ReadOnly = true;
             CurrentOpBox.RightToLeft = RightToLeft.No;
-            CurrentOpBox.Size = new Size(400, 24);
+            CurrentOpBox.Size = new Size(400, 28);
             CurrentOpBox.TabIndex = 24;
             CurrentOpBox.Text = "Made by VukiP.";
             CurrentOpBox.TextAlign = HorizontalAlignment.Right;
@@ -410,6 +410,7 @@
             // 
             MemoryPanel.Controls.Add(MemoryListView);
             MemoryPanel.Controls.Add(MemoryToolbarPanel);
+            MemoryPanel.Font = new Font("Maiandra GD", 19.8000011F);
             MemoryPanel.Location = new Point(581, 15);
             MemoryPanel.Name = "MemoryPanel";
             MemoryPanel.Size = new Size(370, 495);
@@ -418,7 +419,7 @@
             // MemoryListView
             // 
             MemoryListView.BorderStyle = BorderStyle.None;
-            MemoryListView.Font = new Font("Consolas", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            MemoryListView.Font = new Font("Maiandra GD", 14F);
             MemoryListView.FullRowSelect = true;
             MemoryListView.HeaderStyle = ColumnHeaderStyle.None;
             MemoryListView.Location = new Point(0, 52);
@@ -441,8 +442,8 @@
             // 
             // MemoryCopyButton
             // 
-            MemoryCopyButton.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold);
-            MemoryCopyButton.Location = new Point(-3, -3);
+            MemoryCopyButton.Font = new Font("Maiandra GD", 20F);
+            MemoryCopyButton.Location = new Point(0, -3);
             MemoryCopyButton.Name = "MemoryCopyButton";
             MemoryCopyButton.Size = new Size(185, 49);
             MemoryCopyButton.TabIndex = 25;
@@ -452,7 +453,7 @@
             // 
             // MemoryDeleteButton
             // 
-            MemoryDeleteButton.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold);
+            MemoryDeleteButton.Font = new Font("Maiandra GD", 20F);
             MemoryDeleteButton.Location = new Point(182, -3);
             MemoryDeleteButton.Name = "MemoryDeleteButton";
             MemoryDeleteButton.Size = new Size(185, 49);
@@ -463,7 +464,7 @@
             // 
             // MemoryToggleButton
             // 
-            MemoryToggleButton.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold);
+            MemoryToggleButton.Font = new Font("Maiandra GD", 19.8000011F);
             MemoryToggleButton.Location = new Point(28, 15);
             MemoryToggleButton.Name = "MemoryToggleButton";
             MemoryToggleButton.Size = new Size(89, 49);

@@ -7,18 +7,25 @@ namespace CalculatorWinForms
     {
         private void DigitButton_Click(object sender, EventArgs e) // Digit buttons wired to one event handler. 
         {
-            Button clicked = (Button)sender;
+            Button Clicked = (Button)sender;
 
-            if (IsOperationPending || ResultsBox.Text == "0")
+            if (ResultsBox.Text.Length > 15 && !IsOperationPending)
             {
-                ResultsBox.Text = clicked.Text;
-                IsOperationPending = false;
-                CurrentOpBox.Text = "";
+                MessageBox.Show("Cannot enter more than 15 digits!", "Stop!");
+                return;
             }
-
             else
             {
-                ResultsBox.Text += clicked.Text;
+                if (IsOperationPending || ResultsBox.Text == "0")
+                {
+                    ResultsBox.Text = Clicked.Text;
+                    IsOperationPending = false;
+                    CurrentOpBox.Text = "";
+                }
+                else
+                {
+                    ResultsBox.Text += Clicked.Text;
+                }
             }
 
             UpdateCurrentOpBox();
@@ -73,25 +80,18 @@ namespace CalculatorWinForms
         {
             if (!CalculationPerformed)
             {
-                if (!ResultsBox.Text.Contains('E'))
+                // CASE A: More than one character in the display.
+                if (ResultsBox.Text.Length > 1)
                 {
-                    // CASE A: More than one character in the display.
-                    if (ResultsBox.Text.Length > 1)
-                    {
-                        ResultsBox.Text = ResultsBox.Text[..^1]; // Slice off the last character.
-                        LastOperand = double.Parse(ResultsBox.Text);
-                    }
-                    // CASE B: Only one character left -> Reset to 0.
-                    else
-                    {
-                        SecondValue = 0;
-                        LastOperand = 0;
-                        ResultsBox.Text = "0";
-                    }
+                    ResultsBox.Text = ResultsBox.Text[..^1]; // Slice off the last character.
+                    LastOperand = double.Parse(ResultsBox.Text);
                 }
+                // CASE B: Only one character left -> Reset to 0.
                 else
                 {
-                    ResultsBox.Text = ResultsBox.Text[..^5]; // Crude workaround, not gonna lie. 
+                    SecondValue = 0;
+                    LastOperand = 0;
+                    ResultsBox.Text = "0";
                 }
 
                 UpdateCurrentOpBox();

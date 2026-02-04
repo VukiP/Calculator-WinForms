@@ -1,7 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
-
-namespace CalculatorWinForms
+﻿namespace CalculatorWinForms
 {
     public partial class Calculator : Form
     {
@@ -99,6 +96,7 @@ namespace CalculatorWinForms
         {
             try
             {
+                CalculationPerformed = true;
                 FirstValue = double.Parse(ResultsBox.Text);
 
                 if (FirstValue == 0)
@@ -119,6 +117,7 @@ namespace CalculatorWinForms
         }
         private void PercentButton_Click(object sender, EventArgs e)
         {
+            CalculationPerformed = true;
             double input = double.Parse(ResultsBox.Text);
 
             // CASE A: Percent of left operand (e.g., 200 + 10% = 200 + 20).
@@ -152,6 +151,7 @@ namespace CalculatorWinForms
         }
         private void RootButton_Click(object sender, EventArgs e)
         {
+            CalculationPerformed = true;
             FirstValue = double.Parse(ResultsBox.Text);
             if (FirstValue < 0)
             {
@@ -167,6 +167,7 @@ namespace CalculatorWinForms
         }
         private void PowerButton_Click(object sender, EventArgs e)
         {
+            CalculationPerformed = true;
             FirstValue = double.Parse(ResultsBox.Text);
             double input = FirstValue;
             FirstValue = Math.Pow(FirstValue, 2);
@@ -220,6 +221,7 @@ namespace CalculatorWinForms
 
             ResultsBox.Text = FirstValue.ToString();
             IsOperationPending = true;
+            CalculationPerformed = true;
         }
     }
 }
