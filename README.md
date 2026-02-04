@@ -1,5 +1,4 @@
 # All criticism is welcome.
-# On a leave of absence.
 
 ## Preview:
 
